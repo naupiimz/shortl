@@ -1,3 +1,4 @@
+import { API_HOST } from '$env/static/private';
 import type { Actions } from '@sveltejs/kit';
 
 export const actions: Actions = {
@@ -6,7 +7,7 @@ export const actions: Actions = {
 		const url = data.get('long_url');
 		const id = data.get('user_id');
 
-		const response = await fetch('http://localhost:9000/create-short-url', {
+		const response = await fetch(`${API_HOST}/create-short-url`, {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json'
